@@ -74,13 +74,7 @@ def index():
                 reviews.append(mydict)
             logging.info("log my final result {}".format(reviews))
 
-            uri = "mongodb+srv://rakeyshml23:usrUHSTG3MP2va0y@cluster0.qoaywif.mongodb.net/?retryWrites=true&w=majority"
-            # Create a new client and connect to the server
-            client = pymongo.MongoClient(uri)
-           # client = pymongo.MongoClient("mongodb+srv://pwskills:pwskills@cluster0.ln0bt5m.mongodb.net/?retryWrites=true&w=majority")
-            db =client['sample_airbnb']
-            coll_pw_eng = db['scraper_pwskills_eng']
-            coll_pw_eng.insert_many(reviews)
+           
 
             return render_template('result.html', reviews=reviews[0:(len(reviews)-1)])
         except Exception as e:
